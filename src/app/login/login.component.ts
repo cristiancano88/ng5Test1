@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from '../shared/notification/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private notificaSrv: NotificationService) { }
 
   ngOnInit() {
+  }
+
+  mostrarInfo() {
+    this.notificaSrv.show('info', 'mensaje de informacion');
+  }
+
+  mostrarError() {
+    this.notificaSrv.show('error', 'mensaje de error');
   }
 
 }

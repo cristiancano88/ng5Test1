@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { NotificationComponent } from './shared/notification/notification.component';
+import { NotificationService } from './shared/notification/notification.service';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { NotificationComponent } from './shared/notification/notification.compon
     BrowserModule,
     RouterModule.forRoot(RouterConfig)
   ],
-  providers: [],
+  providers: [NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
