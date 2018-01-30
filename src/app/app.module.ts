@@ -1,3 +1,4 @@
+import { UsuarioService } from './usuario/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterConfig } from './router.config';
 import { RouterModule, Routes } from '@angular/router';
@@ -29,7 +30,7 @@ import { HttpClient } from 'selenium-webdriver/http';
     RouterModule.forRoot(RouterConfig),
     HttpClientModule
   ],
-  providers: [NotificationService],
+  providers: [NotificationService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

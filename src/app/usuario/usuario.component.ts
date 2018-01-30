@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from './usuario.service';
+import { Usuario } from './usuario';
 
 @Component({
   selector: 'app-usuario',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
-
-  constructor() { }
+  usuarios: Usuario[];
+  constructor(private usuarioSrv: UsuarioService) {
+    this.usuarioSrv.getUsuario()
+    .then((d: Usuario[]) => {
+        this.usuarios = d;
+    });
+  }
 
   ngOnInit() {
   }
