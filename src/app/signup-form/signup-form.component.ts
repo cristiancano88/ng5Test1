@@ -18,7 +18,6 @@ export class SignupFormComponent implements OnInit {
   // Property for the user
   private user: User;
   constructor() {
-    this.genderList =  ['Male', 'Female', 'Others'];
   }
 
   ngOnInit() {
