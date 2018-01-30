@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { RouterConfig } from './router.config';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +11,7 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { NotificationComponent } from './shared/notification/notification.component';
 import { NotificationService } from './shared/notification/notification.service';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { HttpClient } from 'selenium-webdriver/http';
+
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { HttpClient } from 'selenium-webdriver/http';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(RouterConfig),
-    HttpClientModule
+    RouterModule.forRoot(RouterConfig)
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent]

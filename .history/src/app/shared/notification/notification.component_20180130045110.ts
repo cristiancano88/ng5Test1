@@ -10,11 +10,9 @@ export class NotificationComponent implements OnInit {
   mensaje: string = 'Bienvenido dal programa'
   tipo: string = 'info'
   constructor(private notificaSrv: NotificationService) { 
-    this.borraMensaje();
     this.notificaSrv.emiter.subscribe((d:any)=>{
       this.mensaje = d.mensaje;
       this.tipo = d.tipo;
-      this.borraMensaje();
     });
   }
 

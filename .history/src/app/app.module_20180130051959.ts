@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { RouterConfig } from './router.config';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
