@@ -7,7 +7,8 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   getUsuario() {
-    return this.http.get('api/Usuarios').toPromise();
+    // return this.http.get('api/Usuarios').toPromise();
+    return this.http.get('http://jsonplaceholder.typicode.com/users').toPromise();
   }
 
 }

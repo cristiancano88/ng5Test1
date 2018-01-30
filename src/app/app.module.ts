@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './usuario/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterConfig } from './router.config';
@@ -14,6 +15,7 @@ import { NotificationComponent } from './shared/notification/notification.compon
 import { NotificationService } from './shared/notification/notification.service';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { HttpClient } from 'selenium-webdriver/http';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { HttpClient } from 'selenium-webdriver/http';
     RegistroComponent,
     MenuComponent,
     NotificationComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(RouterConfig),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [NotificationService, UsuarioService],
   bootstrap: [AppComponent]
