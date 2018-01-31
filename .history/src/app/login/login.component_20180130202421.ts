@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
     alert(frm.email + ' ' + frm.clave);
   }
 
-  mostrarInfo() {
-    this.notificaSrv.show('info', 'mensaje de informacion');
-  }
+  // mostrarInfo() {
+  //   this.notificaSrv.show('info', 'mensaje de informacion');
+  // }
 
-  mostrarError() {
-    this.notificaSrv.show('error', 'mensaje de error');
-  }
+  // mostrarError() {
+  //   this.notificaSrv.show('error', 'mensaje de error');
+  // }
 
 }

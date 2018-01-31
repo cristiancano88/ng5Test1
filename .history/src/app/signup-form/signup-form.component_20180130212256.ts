@@ -62,7 +62,7 @@ export class SignupFormComponent implements OnInit {
         console.log(this.user);
         /* Any API call logic via services goes here */
     }
-  }
+}
 
   get email() { return this.signupForm.get('email'); }
 

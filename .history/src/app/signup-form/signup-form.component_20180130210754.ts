@@ -56,20 +56,4 @@ export class SignupFormComponent implements OnInit {
     // });
   }
 
-  public onFormSubmit() {
-    if (this.signupForm.valid) {
-        this.user = this.signupForm.value;
-        console.log(this.user);
-        /* Any API call logic via services goes here */
-    }
-  }
-
-  get email() { return this.signupForm.get('email'); }
-
-  get password() { return this.signupForm.get('password'); }
-
-  get gender() { return this.signupForm.get('gender'); }
-
-  get terms() { return this.signupForm.get('terms'); }
-
 }

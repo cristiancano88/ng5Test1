@@ -3,7 +3,6 @@
     <form
       class="form-horizontal"
       [formGroup]="signupForm"
-      (ngSubmit)="onFormSubmit()"
     >
       <fieldset>
         <legend>SignUp</legend>
@@ -16,7 +15,7 @@
             formControlName="email"
             id="inputEmail"
             placeholder="Email"
-          />
+          ></input>
 
           <!-- Email error block -->
 
@@ -45,16 +44,14 @@
               formControlName="pwd"
               id="inputPassword"
               placeholder="Password"
-            />
+            ></input>
 
             <!-- Password error block -->
-
-            <div
-              *ngIf="(password.invalid && password.touched)"
-              class="col-sm-3 text-danger"
-            >
-              Password needs to be more than 8 characters
-            </div>
+       <div *ngIf="(password.invalid && password.touched)"
+       class="col-sm-3 text-danger">
+    
+       Password needs to be more than 8 characters
+   </div>
           </div>
 
           <div class="form-group">
@@ -65,7 +62,7 @@
               formControlName="confirmPwd"
               id="confirmPassword"
               placeholder="Password"
-            />
+            ></input>
           </div>
         </div>
 
@@ -88,44 +85,36 @@
             <input
               type="checkbox"
               formControlName="terms"
-            />
+            ></input>
 
-            Confirm that you've read the Terms and Conditions
+            Confirm that you've read the Terms and 
+                Conditions
           </label>
+        </div>
 
-          <!-- - Terms error block -->
+        <!-- - Buttons Block -->
 
-          <div
-            *ngIf="(terms.invalid && terms.touched)"
-            class="col-sm-3 text-danger"
-          >
-            Please accept the Terms and conditions first.
-          </div>
+        <div class="form-group">
+          <button
+            type="reset"
+            class="btn btn-default"
+          >Cancel</button>
+
+          <button
+            type="submit"
+            [disabled]="!signupForm.valid"
+            class="btn btn-primary"
+          >Submit</button>
         </div>
       </fieldset>
     </form>
+
+    <p>
+      Form value {{ signupForm.value | json }}
+    </p>
+
+    <p>
+      Form status {{ signupForm.status | json}}
+    </p>
   </div>
-
-  <!-- - Buttons Block -->
-
-  <div class="form-group">
-    <button
-      type="reset"
-      class="btn btn-default"
-    >Cancel</button>
-
-    <button
-      type="submit"
-      [disabled]="!signupForm.valid"
-      class="btn btn-primary"
-    >Submit</button>
-  </div>
-
-  <p>
-    Form value {{ signupForm.value | json }}
-  </p>
-
-  <p>
-    Form status {{ signupForm.status | json}}
-  </p>
 </div>
