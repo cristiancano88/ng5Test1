@@ -1,3 +1,4 @@
+import { VariableService } from './shared/variable.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './usuario/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +17,7 @@ import { NotificationService } from './shared/notification/notification.service'
 import { UsuarioComponent } from './usuario/usuario.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { UsuarioContenidoComponent } from './usuario/usuario-contenido/usuario-contenido.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     MenuComponent,
     NotificationComponent,
     UsuarioComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    UsuarioContenidoComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,11 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [NotificationService, UsuarioService],
+  providers: [
+    NotificationService,
+    UsuarioService,
+    VariableService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VariableService } from '../variable.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+  loggedIn = false;
+  constructor(
+    private variableSrv: VariableService
+  ) { }
 
   ngOnInit() {
+    this.variableSrv.bloggIn.subscribe(
+      v => this.loggedIn = v
+    );
+  }
+
+  logout() {
+    this.variableSrv.bloggIn.next(false);
   }
 
 }

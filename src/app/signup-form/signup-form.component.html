@@ -1,29 +1,17 @@
 <div class="row custom-row">
   <div class="col-sm-5 custom-container jumbotron">
-    <form
-      class="form-horizontal"
-      [formGroup]="signupForm"
-      (ngSubmit)="onFormSubmit()"
-    >
+    <form class="form-horizontal" [formGroup]="signupForm" (ngSubmit)="onFormSubmit()">
       <fieldset>
         <legend>SignUp</legend>
 
         <div class="form-group">
           <label for="inputEmail">Email</label>
 
-          <input
-            type="text"
-            formControlName="email"
-            id="inputEmail"
-            placeholder="Email"
-          />
+          <input type="text" formControlName="email" id="inputEmail" placeholder="Email" />
 
           <!-- Email error block -->
 
-          <div
-            *ngIf="email.invalid && email.touched"
-            class="col-sm-3 text-danger"
-          >
+          <div *ngIf="email.invalid && email.touched" class="col-sm-3 text-danger">
             <div *ngIf="email.errors?.required">Email field can't be blank</div>
 
             <div *ngIf="email.errors?.pattern">
@@ -40,19 +28,11 @@
           <div class="form-group">
             <label for="inputPassword">Password</label>
 
-            <input
-              type="password"
-              formControlName="pwd"
-              id="inputPassword"
-              placeholder="Password"
-            />
+            <input type="password" formControlName="pwd" id="inputPassword" placeholder="Password" />
 
             <!-- Password error block -->
 
-            <div
-              *ngIf="(password.invalid && password.touched)"
-              class="col-sm-3 text-danger"
-            >
+            <div *ngIf="(password.invalid && password.touched)" class="col-sm-3 text-danger">
               Password needs to be more than 8 characters
             </div>
           </div>
@@ -60,45 +40,26 @@
           <div class="form-group">
             <label for="confirmPassword">Confirm Password</label>
 
-            <input
-              type="password"
-              formControlName="confirmPwd"
-              id="confirmPassword"
-              placeholder="Password"
-            />
+            <input type="password" formControlName="confirmPwd" id="confirmPassword" placeholder="Password" />
           </div>
         </div>
 
         <div class="form-group">
           <label for="select">Gender</label>
 
-          <select
-            id="select"
-            formControlName="gender"
-          >
-            <option
-              *ngFor="let g of genderList"
-              [value]="g"
-            >{{g}}</option>
+          <select id="select" formControlName="gender">
+            <option *ngFor="let g of genderList" [value]="g">{{g}}</option>
           </select>
         </div>
 
         <div class="form-group checkbox">
           <label>
-            <input
-              type="checkbox"
-              formControlName="terms"
-            />
-
-            Confirm that you've read the Terms and Conditions
+            <input type="checkbox" formControlName="terms" /> Confirm that you've read the Terms and Conditions
           </label>
 
           <!-- - Terms error block -->
 
-          <div
-            *ngIf="(terms.invalid && terms.touched)"
-            class="col-sm-3 text-danger"
-          >
+          <div *ngIf="(terms.invalid && terms.touched)" class="col-sm-3 text-danger">
             Please accept the Terms and conditions first.
           </div>
         </div>
@@ -109,16 +70,9 @@
   <!-- - Buttons Block -->
 
   <div class="form-group">
-    <button
-      type="reset"
-      class="btn btn-default"
-    >Cancel</button>
+    <button type="reset" class="btn btn-default">Cancel</button>
 
-    <button
-      type="submit"
-      [disabled]="!signupForm.valid"
-      class="btn btn-primary"
-    >Submit</button>
+    <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary">Submit</button>
   </div>
 
   <p>

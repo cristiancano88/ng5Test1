@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../shared/notification/notification.service';
-// import { FormBuilder } from '@angular/forms/src/form_builder';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { VariableService } from '../shared/variable.service';
+// import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,19 +12,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   frmLogin: FormGroup;
 
-  constructor(private notificaSrv: NotificationService,
-    // private fb: FormBuilder
+  constructor(
+    private notificaSrv: NotificationService,
+    private fb: FormBuilder,
+    private variableSrv: VariableService
     ) {
-
-  // constructor(private fb: FormBuilder) {
-    // this.frmLogin = this.fb.group({
-    //   'email': ['', Validators.email],
-    //   'clave': ['', Validators.required]
-    // });
-
-    this.frmLogin = new FormGroup ({
-      email: new FormControl('', Validators.required),
-      clave: new FormControl('', Validators.required)
+    this.frmLogin = this.fb.group({
+      'email': ['', Validators.email],
+      'clave': ['', Validators.required]
     });
   }
 
@@ -32,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     const frm = this.frmLogin.value;
-    alert(frm.email + ' ' + frm.clave);
+    this.variableSrv.bloggIn.next(true);
   }
 
   mostrarInfo() {
