@@ -1,9 +1,8 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Input, Component, OnInit, OnChanges } from '@angular/core';
 import { Usuario } from '../usuario';
-import { Input } from '@angular/core';
 import { FormGroup } from '@angular/forms/src/model';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-usuario-contenido',
@@ -13,7 +12,8 @@ import { Validators } from '@angular/forms';
 export class UsuarioContenidoComponent implements OnInit, OnChanges {
   @Input() usuario: Usuario;
   frmUsuario: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+  private usuarioSrv: UsuarioService) {
     this.frmUsuario = this.fb.group({
       nombre: ['', Validators.required],
       email: ['', Validators.email],
@@ -30,8 +30,16 @@ export class UsuarioContenidoComponent implements OnInit, OnChanges {
     this.frmUsuario.setValue({
       nombre: this.usuario.name,
       email: this.usuario.email,
-      clave: this.usuario.clave
+      clave: 123456
+      // clave: this.usuario.clave
     });
+  }
+
+  borrar() {
+    if (this.usuario === undefined) { return; }
+
+    this.usuarioSrv.borrar(this.usuario.id)
+    .subscribe();
   }
 
 }

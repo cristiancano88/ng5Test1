@@ -5,7 +5,7 @@ import { Usuario } from './usuario';
 @Injectable()
 export class UsuarioService {
   api = 'http://jsonplaceholder.typicode.com/users';
-  header = new HttpHeaders({ 'Content-Type': 'application/json' });
+  headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient) { }
 
   getUsuario() {
@@ -16,7 +16,12 @@ export class UsuarioService {
   grabar(usuario: Usuario) {
     return this.http.post(this.api,
       JSON.stringify(usuario),
-      { headers: this.header }).toPromise();
+      { headers: this.headers }).toPromise();
+  }
+
+  borrar(id: number) {
+    return this.http.delete(this.api + '/' + id,
+      { headers: this.headers });
   }
 
 }

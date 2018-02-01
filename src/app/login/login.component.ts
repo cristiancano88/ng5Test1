@@ -1,8 +1,11 @@
+import { Route } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../shared/notification/notification.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VariableService } from '../shared/variable.service';
-// import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from './login.service';
+// import { FormControl, FormGroup, Validators } from '@angular/forms'; //
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private notificaSrv: NotificationService,
     private fb: FormBuilder,
-    private variableSrv: VariableService
+    private variableSrv: VariableService,
+    private router: Router,
+    private loginSrv: LoginService
     ) {
     this.frmLogin = this.fb.group({
       'email': ['', Validators.email],
@@ -28,7 +33,10 @@ export class LoginComponent implements OnInit {
 
   login() {
     const frm = this.frmLogin.value;
-    this.variableSrv.bloggIn.next(true);
+    this.loginSrv.verificaAcceso(frm.email, frm.clave);
+
+    // this.variableSrv.bloggIn.next(true);
+    // this.router.navigate(['usuario']);
   }
 
   mostrarInfo() {

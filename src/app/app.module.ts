@@ -18,6 +18,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { UsuarioContenidoComponent } from './usuario/usuario-contenido/usuario-contenido.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UsuarioContenidoComponent } from './usuario/usuario-contenido/usuario-c
   providers: [
     NotificationService,
     UsuarioService,
-    VariableService
+    VariableService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

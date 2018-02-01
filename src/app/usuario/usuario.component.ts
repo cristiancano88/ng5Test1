@@ -9,7 +9,7 @@ import { Usuario } from './usuario';
 })
 export class UsuarioComponent implements OnInit {
   usuarios: Usuario[];
-  usuario: Usuario;
+  usuarioInfo: Usuario;
   constructor(private usuarioSrv: UsuarioService) {
     this.usuarioSrv.getUsuario()
     .then((d: Usuario[]) => {
@@ -21,7 +21,7 @@ export class UsuarioComponent implements OnInit {
   }
 
   seleccionar(usuario) {
-    
+    this.usuarioInfo = usuario;
   }
 
 }
