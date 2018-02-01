@@ -1,0 +1,8 @@
+<div class="contenedor">
+  <div class="buscar">
+    <div (click)="seleccionar()" *ngFor="let usuario of usuarios">
+      {{usuario.name}}
+    </div>
+  </div>
+  <app-usuario-contenido></app-usuario-contenido>
+</div>

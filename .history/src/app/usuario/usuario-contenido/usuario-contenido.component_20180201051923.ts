@@ -2,8 +2,8 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Usuario } from '../usuario';
 import { Input } from '@angular/core';
 import { FormGroup } from '@angular/forms/src/model';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms/src/form_builder';
+import { Validators } from '@angular/forms/src/validators';
 
 @Component({
   selector: 'app-usuario-contenido',
